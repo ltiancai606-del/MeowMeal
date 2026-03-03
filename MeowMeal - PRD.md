@@ -30,8 +30,8 @@
 碳水化合物,< 10%,< 5%,猫没有生理需求，仅作为纤维素来源。
 ◦ **食谱展示**： 最终的食材应列举肉类部位及重量，如红肉-猪腿肉-500g
 ◦ **多维度统计分析**：自动生成蛋白质/脂肪/碳水重量占比饼状图（展示克数及比例）、食材品类（心、肝、红肉、白肉、鱼、其他）占比的饼状图（展示克数及比例）。 
-◦ **食谱达标计算**：切换标准可查看营养素“推荐含量”、“当前含量”及“是否达标”（通过红黄绿三色标记）。NRC、AAFCO两种营养标准见**MeowMeal-Nutritional element standards  NRC+AAFCO.xlsx**。当前含量需要根据食谱中的肉类和重量，自动计算营养素含量，每种肉类的营养素含量见**MeowMeal-Common Nutritional Elements in Meat.xlsx**。
-◦ **补剂添加**：用户手动选择补剂品牌（品牌见MeowMeal-Common Supplement Content Table）），选择后，系统自动推荐添加含量；用户可手动修改
+◦ **食谱达标计算**：切换标准可查看营养素“推荐含量”、“当前含量”及“是否达标”（通过红黄绿三色标记）。NRC、AAFCO两种营养标准见**[MeowMeal-Nutritional element standards  NRC+AAFCO.xlsx](https://docs.google.com/spreadsheets/d/e/2PACX-1vS-Oqp1F41Ivn4pXBepe9LoPRetgV__z9YKbv-zInrDzPTqLYyHnhmTC9ITMiKjz1MHg7XvsAJcjYa7/pubhtml)**。当前含量需要根据食谱中的肉类和重量，自动计算营养素含量，每种肉类的营养素含量见**(https://docs.google.com/spreadsheets/d/e/2PACX-1vSd3xNsjqRBou0WH6t_SedhGgnsHVWKMWRcsnRIkZQN2vDpNuV6yTFeckX9gZU2h6HeZlUHc1g-4r_M/pubhtml)**。
+◦ **补剂添加**：用户手动选择补剂品牌（品牌见[MeowMeal-Common Supplement Content Table）](https://docs.google.com/spreadsheets/d/e/2PACX-1vTjIEE9Jz_9BFGNW0GqMlZ0hAByAbZEiKl_Of9OgX1DCg7z6zuahvk00N8xRoydFdwF-W2RSPlFhGdf/pubhtml)），选择后，系统自动推荐添加含量；用户可手动修改
 ◦ **周期与执行**：默认 3-4 周为一周期，点击执行后自动扣除冰箱库存。  
 • **验收标准**：食谱中食材分配比例依据食谱生成原则，比例在合理范围内；枚举功能均实现；营养计算结果绝对精准；两种定制模式下差额计算无误；食材替换需符合同类营养同类部位的逻辑；执行后必须触发库存精准扣减。  
 3.3 冰箱库存智能管理模块  
@@ -49,7 +49,7 @@
 四、 技术要求 (开发依赖文档)  
 为了顺利实现上述功能，技术团队需要梳理并输出以下核心技术文档：
 
-1. **营养算法与配比逻辑说明文档**：核心算法。详细定义 NRC/AAFCO 在各阶段的参数表见MeowMeal-Nutritional element standards NRC+AAFCO.xlsx，明确如何根据猫咪体重自动计算卡路里需求，进而换算为肉类比例、微量元素含量见MeowMeal-Common Nutritional Elements in Meat.xlsx及常见补剂含量表的数学模型。  
+1. **营养算法与配比逻辑说明文档**：核心算法。详细定义 NRC/AAFCO 在各阶段的参数表见[MeowMeal-Nutritional element standards  NRC+AAFCO.xlsx](https://docs.google.com/spreadsheets/d/e/2PACX-1vS-Oqp1F41Ivn4pXBepe9LoPRetgV__z9YKbv-zInrDzPTqLYyHnhmTC9ITMiKjz1MHg7XvsAJcjYa7/pubhtml)，明确如何根据猫咪体重自动计算卡路里需求，进而换算为肉类比例、微量元素含量见(https://docs.google.com/spreadsheets/d/e/2PACX-1vSd3xNsjqRBou0WH6t_SedhGgnsHVWKMWRcsnRIkZQN2vDpNuV6yTFeckX9gZU2h6HeZlUHc1g-4r_M/pubhtml)及常见补剂含量表的数学模型。  
 2. **OCR 接口对接与数据映射文档**：定义第三方 OCR 图像识别 API 对接规范，以及提取“品类、重量、日期、金额”等非结构化文本并清洗、映射入系统数据库字段的策略。  
 3. **AI 推荐与 NLP 策略文档**：说明 AI 生成个性化喂养建议的逻辑树、同类食材快速替换（如鸡心换鸭心）的底层标签匹配规则，以及 QA 助手的 prompt 约束词库。  
 4. **数据库架构与 ER 图**：设计强关联的表结构，至少包含：用户表、多宠物表、营养元素字典表、食材/补剂基础参数表、动态冰箱库存表、食谱执行周期表、账单流水表。  
